@@ -1,14 +1,15 @@
 import Link from "next/link"
-import styles from '../../styles/Home.module.css'
+import { MainLayout } from "../../components/ui/layout"
 
 function Blog() {
   return <div>
     <div>Blog Page</div>
     <Link href='/'>
       <a>
-        <code>Go to Home Page</code>
+        <button>Go to Home Page</button>
       </a>
     </Link>
   </div>
 }
 export default Blog
+Blog.Layout = MainLayout
