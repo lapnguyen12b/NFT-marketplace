@@ -1,11 +1,12 @@
-import { Header } from "../../common";
-import { Footer } from "../../common";
+import { Header, Footer } from "../../common";
 const MainLayout = ({children}) => {
   return (
     <div>
-      <Header />
-        {children}
-      <Footer />
+      <Header/>
+        <div>
+          <div className="fit max-w-[1440px] mx-auto">{children}</div>
+        </div>
+      <Footer/>
     </div>
   )
 }
