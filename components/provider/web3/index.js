@@ -12,10 +12,10 @@ export default function Web3Provider({ children }) {
   
   useEffect( () => {
     const loadProvider = async () => {
-      const eth = window.ethereum
-      const provider = new ethers.providers.Web3Provider(eth)
+      const ethereum = window.ethereum
+      const provider = new ethers.providers.Web3Provider(ethereum)
       setWeb3api({
-        ethereum: eth,
+        ethereum,
         provider,
         contract: null,
         isLoading: false,
