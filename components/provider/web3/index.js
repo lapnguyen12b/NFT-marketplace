@@ -1,12 +1,26 @@
 const { createContext, useContext, useState, useEffect } = require("react");
+import { ethers } from 'ethers'
 
 const Web3Context = createContext();
 export default function Web3Provider({ children }) {
-  const [web3Api, setWeb3api] = useState();
+  const [web3Api, setWeb3api] = useState({
+    ethereum: null,
+    provider: null,
+    contract: null,
+    isLoading: true,
+  });
+  
   useEffect( () => {
     const loadProvider = async () => {
-      const provider = window.ethereum
-      setWeb3api(provider)
+      const eth = window.ethereum
+      const provider = new ethers.providers.Web3Provider(eth)
+      setWeb3api({
+        ethereum: eth,
+        provider,
+        contract: null,
+        isLoading: false,
+      });
+      // setWeb3api(provider)
     }
     loadProvider();
   }, []);

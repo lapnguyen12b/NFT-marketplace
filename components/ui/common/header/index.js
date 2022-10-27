@@ -15,8 +15,8 @@ function classNames(...classes) {
 }
 
 export default function Header() {
-  const web3Api = useWeb3();
-  console.log(web3Api);
+  const { ethereum } = useWeb3();
+  console.log(ethereum);
 
   return (
     <Disclosure as="nav" className="bg-gray-800">
@@ -70,7 +70,7 @@ export default function Header() {
                 <button
                   type="button"
                   className="bg-red-800 px-2 py-0.5 rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-                  onClick={() => web3Api.request({method: "eth_requestAccounts"})}
+                  onClick={() => ethereum.request({method: "eth_requestAccounts"})}
                 >
                   <span className="sr-only">View notifications</span>
                   Connect
