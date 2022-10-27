@@ -1,6 +1,7 @@
 import { Fragment, useEffect, useState } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import { useWeb3 } from '../../../provider'
 
 const navigation = [
   { name: 'Dashboard', href: '#', current: true },
@@ -14,11 +15,8 @@ function classNames(...classes) {
 }
 
 export default function Header() {
-  const [web3Api, setWeb3api] = useState()
-  useEffect( () => {
-    const eth = window.ethereum;
-    setWeb3api(eth)
-  }, []);
+  const web3Api = useWeb3();
+  console.log(web3Api);
 
   return (
     <Disclosure as="nav" className="bg-gray-800">

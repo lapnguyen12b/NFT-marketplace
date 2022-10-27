@@ -1,13 +1,16 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
-import { EmptyLayout } from '../components/ui/layout'
+import '../styles/globals.css';
+import type { AppProps } from 'next/app';
+import { EmptyLayout } from '../components/ui/layout';
+import { Web3Provider } from '../components/provider';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const Layout = Component.Layout ?? EmptyLayout;
   return (
-    <Layout>
-        <Component {...pageProps} />
-    </Layout>
+    <Web3Provider>
+      <Layout>
+          <Component {...pageProps} />
+      </Layout>
+    </Web3Provider>
   )
 }
 
